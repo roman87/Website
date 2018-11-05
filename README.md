@@ -67,10 +67,15 @@ flask db upgrade
 flask shell
 
 title = "some title"
+
 article = "some article"
+
 af = AF(title=title, article=article)
+
 db.session.add(af)
+
 db.session.commit()
+
 exit()
 
 10. Running web app:
