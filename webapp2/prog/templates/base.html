@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Welcome!</title>
+        <style type="text/css" media="all">
+            body { background-image: url('ws_Beautiful_autumn_leaves_1920x1080.jpg');}
+        </style>
+    </head>
+    <body>
+        <div>
+            <center>
+            <h1 style="border: 10px solid brown; color:333399; width:50%;">Welcome to my site!</h1>
+            </center>
+        </div>
+        <div style="border: 10px solid brown; width:99%;">
+            <center>
+            <div style="background-color:669933; height:800px; width:20%; float:left;">
+                <div><b>Main menu</b></div>
+                <a href="/"><input type="button" name="ok" value="Home"></a>
+                <br />
+                <a href="{{ url_for('first') }}"><input type="button" name="ok" value="First article"></a>
+                <br />
+                <a href="{{ url_for('second') }}"><input type="button" name="ok" value="Second article"></a>
+                <br />
+                <a href="{{ url_for('third') }}"><input type="button" name="ok" value="Third article"></a>
+            </div>
+            <div style="background-color:FFCC66; height:800px; width:60%; float:left;">
+            {% block content %}{% endblock %}
+            </div>
+            <div style="background-color:669933; height:800px; width:20%; float:left;">
+                <div><b>References</b></div>
+            </div>
+            <div style="background-color:#b5dcb3; clear:both">
+                <center>
+                <i>
+                This site is created by <a href="https://www.facebook.com/roman.neomenko">Roman Neomenko</a>
+                </i>
+                </center>
+            </div>
+            </center>
+         </div>
+    </body>
+</html>

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h3>{{ title }}</h3>
+    <p>{{ text }}</p>
+    <p>
+        <form action="{{ url_for('first') }}" method="post">
+            <label>Name</label>
+            <input type="name" name="Name">
+            <br />
+            <label>Comment</label>
+            <input type="comment" name="Comment">
+            <br />
+            <input type="submit" name="Submit">
+        </form>
+    </p>           
+{% endblock %}
