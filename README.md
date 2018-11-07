@@ -30,7 +30,7 @@ sudo apt-get install postgresql-9.5 postgresql-contrib-9.5 postgresql-client-9.5
 
 4. Running postgres:
 
-sudo servise postgresql start
+sudo service postgresql start
 
 5. Creation of database:
 
@@ -46,7 +46,7 @@ CREATE DATABASE text;
 
 exit
 
-6. Cheng working directory:
+6. Change working directory:
 
 cd Website/webapp
 
@@ -62,24 +62,8 @@ flask db migrate -m "my table"
 
 flask db upgrade
 
-9. Entering some text into the table (it must be some three articles in table):
-
-flask shell
-
-title = "some title"
-
-article = "some article"
-
-af = AF(title=title, article=article)
-
-db.session.add(af)
-
-db.session.commit()
-
-exit()
-
-10. Running web app:
+9. Running web app:
 
 flask run
 
-11. Go to http://127.0.0.1:5000/
+10. Go to http://127.0.0.1:5000/

@@ -16,12 +16,10 @@
             <div style="background-color:669933; height:800px; width:20%; float:left;">
                 <div><b>Main menu</b></div>
                 <a href="/"><input type="button" name="ok" value="Home"></a>
-                <br />
-                <a href="{{ url_for('first') }}"><input type="button" name="ok" value="First article"></a>
-                <br />
-                <a href="{{ url_for('second') }}"><input type="button" name="ok" value="Second article"></a>
-                <br />
-                <a href="{{ url_for('third') }}"><input type="button" name="ok" value="Third article"></a>
+                <br /><br />
+                {% for a in articles %}
+                <a href="{{ url_for('article', n=a.ids) }}">{{ a.title }}</a><br /><br />
+                {% endfor %}
             </div>
             <div style="background-color:FFCC66; height:800px; width:60%; float:left;">
             {% block content %}{% endblock %}

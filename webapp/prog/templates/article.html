@@ -3,4 +3,24 @@
 {% block content %}
     <h3>{{ title }}</h3>
     <p>{{ text }}</p>
+    <div>
+        {% for c in com %}
+        <p>
+            {{ c.name }} says: {{ c.comment }}
+        </p>
+        {% endfor %}
+    </div>
+    <p>
+        <form action="" method="post">
+            <p>
+                {{ form.name.label }}<br>
+                {{ form.name(size=32) }}<br>
+            </p>
+            <p>
+                {{ form.comment.label }}<br>
+                {{ form.comment(cols=64, rows=16) }}<br>
+            </p>
+            <p>{{ form.submit() }}</p>
+        </form>
+    </p>           
 {% endblock %}

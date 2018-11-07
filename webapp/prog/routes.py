@@ -1,30 +1,36 @@
-from flask import render_template
-from prog import app
-from prog.models import AF
+from flask import render_template, request, redirect, url_for
+from prog import app, db
+from prog.models import AF, Comment
+from prog.forms import CommentForm, TextForm
 
-@app.route('/')
+@app.context_processor
+def pass_art():
+    articles = AF.query.all()
+    return dict(articles=articles)
+
+@app.route('/', methods=['GET', 'POST'])
 def main():
-    title = "Hi, Roman!"
-    text = "Begin to work"
-    return render_template('article.html', title=title, text=text)
+    title = "HI, ROMAN!"
+    text = "CREATE AN ARTICLE HERE!"
+    form = TextForm()
+    if request.method == "POST":
+        a = AF(title=form.name.data, article=form.comment.data)
+        db.session.add(a)
+        db.session.commit()
+        return redirect(url_for('main'))
+    return render_template('article.html', title=title, text=text, form=form)
 
-@app.route('/first', methods=['GET', 'POST'])
-def first():
-    art = AF.query.get(1)
+@app.route('/<n>', methods=['GET', 'POST'])
+def article(n):
+    art = AF.query.get(int(n))
     title = art.title
     text = art.article
-    return render_template('article.html', title=title, text=text)
+    com = art.comments.all()
+    form = CommentForm()
+    if request.method == "POST":
+        c = Comment(name=form.name.data, comment=form.comment.data, article=art)
+        db.session.add(c)
+        db.session.commit()
+        return redirect('/{}'.format(int(n)))
+    return render_template('article.html', title=title, text=text, form=form, com=com)
 
-@app.route('/second', methods=['GET', 'POST'])
-def second():
-    art = AF.query.get(2)
-    title = art.title
-    text = art.article
-    return render_template('article.html', title=title, text=text)
-
-@app.route('/third', methods=['GET', 'POST'])
-def third():
-    art = AF.query.get(3)
-    title = art.title
-    text = art.article
-    return render_template('article.html', title=title, text=text)
