@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Welcome!</title>
+    </head>
+    <body>
+        <div>
+            <center>
+            <h1 id="title" style="border: 10px solid brown; color:333399; width:50%;">Welcome to my site!</h1>
+            </center>
+        </div>
+        <div id="main" style="border: 10px solid brown; width:99%;">
+            <center>
+            <div id="main1" style="background-color:669933; height:800px; width:20%; float:left;">
+                <div><b>Main menu</b></div>
+                <button id="button">Home</button>
+                <br />
+                <br />
+            </div>
+            <div id="main2" style="background-color:FFCC66; height:800px; width:60%; float:left;">
+                <h3 id="title_article"></h3>
+                <p id="text_article"></p>
+                <br />
+                <br />
+                <form id="UpdateForm", accept-charset=utf-8>
+                    <label>Update Title:</label><br />
+                    <input id="title_update" type="text" value="">
+                    <br />
+                    <label>Update Text:</label><br />
+                    <textarea rows="20" cols="80" id="text_update" value="">
+                    </textarea>
+                    <br />
+                </form>
+            </div>
+            <div id="main3" style="background-color:669933; height:800px; width:20%; float:left;">
+                <div><b>Publish Article Here!</b></div>
+                <br />
+                <form id="CreateForm", accept-charset=utf-8>
+                    <label>Title:</label><br />
+                    <input id="title_send" type="text" value="">
+                    <br />
+                    <label>Text:</label><br />
+                    <textarea rows="20" cols="40" id="text_send" value="">
+                    </textarea>
+                    <br />
+                </form>
+                <button id="pa">Publish Article</button>
+            </div>
+            <div id="created" style="background-color:#b5dcb3; clear:both">
+                <center>
+                <i>
+                This site is created by <a href="https://www.facebook.com/roman.neomenko">Roman Neomenko</a>
+                </i>
+                </center>
+            </div>
+            </center>
+         </div>
+         <script src="api.js"></script>
+    </body>
+</html>
