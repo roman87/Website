@@ -1,4 +1,4 @@
-# Website
+# Website : this is cool
 
 Requirements installation on Ubuntu
 
